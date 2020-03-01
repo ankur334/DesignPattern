@@ -8,7 +8,7 @@ class TestSum(unittest.TestCase):
     def test_songs(self):
         song = Song(
             _id=1,
-            title="All is well",
+            title="All is not well",
             artist="Me"
         )
         serializer = Serializer()
@@ -16,9 +16,7 @@ class TestSum(unittest.TestCase):
             song=song,
             _format="json"
         )
-        print("Song", song)
-        print("Json Serialized", json_format)
-        assert 2 == 2
+        assert json_format == '{"id": 1, "title": "All is not well", "artist": "Me"}'
 
 
 if __name__ == "__main__":
